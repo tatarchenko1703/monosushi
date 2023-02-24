@@ -1,0 +1,436 @@
+@import '../../shared/styles/variables';
+// @import '../../shared/styles/fonts/Rotonda/stylesheet.css';
+
+
+
+//*???????????????????????????????????????????????//
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    z-index: 100;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0%);
+}
+
+.header-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-inner {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+        background: #b5d8f7;
+        width: 200px;
+        height: 100%;
+
+        .mono-brand {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            border-color: $primary-bg-color;
+            background-color: $primary-bg-color;
+
+            img {
+                margin-left: 5px;
+                margin-right: 5px;
+                width: 100%;
+            }
+        }
+    }
+
+
+    .main-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 50px;
+
+        .main-nav-item {
+            width: 90px;
+        }
+    }
+}
+
+
+.burger-button {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 25px;
+    width: 50px;
+    height: 60px;
+    background-color: antiquewhite;
+
+    a {
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+        align-items: center;
+    }
+}
+
+.main-dropdown {
+    position: absolute;
+    top: -100px;
+    left: 0;
+}
+
+.burger_menu {
+    width: 250px;
+    // height: 50%;
+    background-color: #fff;
+    border: 2px solid #b5d8f7;
+    color: #333;
+    border-radius: 7px;
+    // padding-bottom: 25px;
+    // padding-top: 25px;
+    display: block;
+    top: -100lvh;
+    // left: 50px;
+    position: fixed;
+    // animation: ani 1s linear forwards;
+    transition: all 1.4s forwards;
+    z-index: 999;
+    // overflow: scroll;
+
+    .burger_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .box-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            // align-items: center;
+            width: 90%;
+            height: 90%;
+
+            .box-button {
+                margin-top: 25px;
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+
+                button {
+                    outline: 0;
+                    border: 0;
+                }
+            }
+
+            .item {
+                color: #333;
+                text-decoration: none;
+                padding: 10px;
+                font-size: 18px;
+                // border-bottom: 1px solid gray;
+                margin-bottom: 5px;
+                // margin-right: 25px;
+                width: 100%;
+                text-align: start;
+
+                &:hover {
+                    outline: 2px solid $primary-bg-color;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.box {
+    height: 80px;
+    width: 80px;
+}
+
+.burger-box {
+    width: 100%;
+    height: 100%;
+}
+
+.open-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+    border: 0;
+    width: 80px;
+    height: 70px;
+    background-color: #fff;
+    color: #333;
+
+    .open-button-link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // .a {
+    //     width: 100%;
+    //     height: 100%;
+    // }
+
+    &::before,
+    &::after {
+        transition: all 0.9s ease 0s;
+    }
+}
+
+.header {
+    height: 120px;
+    padding: 0;
+}
+
+.nav-button {
+    width: 100%;
+    height: 85%;
+    position: relative;
+    color: #333;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.nav-button-admin {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    color: #333;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.descr {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.draw {
+    display: block;
+    box-sizing: border-box;
+    transition: color 0.1s;
+
+    &::before,
+    &::after {
+        border: 2px solid transparent;
+        border-radius: 8px;
+        width: 0;
+        height: 0;
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+    }
+
+    &::after {
+        bottom: 0;
+        right: 0;
+    }
+
+    &:hover::before,
+    &:hover::after {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover::before {
+        border-top-color: $primary-bg-color; // Make borders visible
+        border-right-color: $primary-bg-color;
+        border-radius: 8px;
+        transition:
+            width 0.1s ease-out, // Width expands first
+            height 0.1s ease-out 0.1s; // And then height
+    }
+
+    &:hover::after {
+        border-bottom-color: $primary-bg-color; // Make borders visible
+        border-left-color: $primary-bg-color;
+        border-radius: 8px;
+        transition:
+            border-color 0s ease-out 0.1s, // Wait for ::before to finish before showing border
+            width 0.25s ease-out 0.1s, // And then exanding width
+            height 0.25s ease-out 0.2s; // And finally height
+    }
+}
+
+.phone-box {
+    height: 100%;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    // margin-left: 50px;
+    background-color: $primary-bg-color;
+    border: 0;
+    outline: 2px solid $primary-bg-color;
+
+    &:hover {
+        background-color: $primary-bg-color-hover;
+    }
+}
+
+.hour-box {
+    height: 100%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // flex-column align-items-center justify-content-center
+}
+
+.user-box {
+    height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+
+    .user-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.box-basket {
+    max-width: 154px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    background-color: $primary-bg-color;
+    border: 0;
+}
+
+.basket {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // background-color: $primary-bg-color;
+    // border: 0;
+}
+
+.header-basket {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 154px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        background: $primary-bg-color;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transition: .35s;
+    }
+
+    i {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        margin-right: 5px;
+
+        span {
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            color: #252525;
+            line-height: 1.3em;
+            font-size: 14px;
+            font-style: normal;
+            padding-top: 6px;
+            background-color: rgb(239, 216, 66);
+            transition: .35s;
+            min-width: 24px;
+            max-width: 34px;
+            height: 30px;
+            width: 30px;
+            border-radius: 100%;
+            text-align: center;
+        }
+    }
+
+    .basket-price {
+        display: inline-block;
+        vertical-align: middle;
+
+        b,
+        strong {
+            margin-left: 5px;
+            font-weight: bold;
+            color: #252525;
+        }
+
+        span {
+            color: #252525;
+        }
+    }
+}

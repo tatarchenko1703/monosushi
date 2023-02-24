@@ -1,0 +1,37 @@
+<div class="margin-header"></div>
+<div class="spacer-md font-fm"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-12 text-center">
+            <div class="center-info">
+                <h2 class="title text-discount font-fm" data-test="bool(false)"></h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row d-flex justify-content-evenly">
+        <ng-container *ngIf="discounts.length > 0">
+            <div class="col-6 mt-3 p-5" *ngFor="let discount of discounts">
+                <div class="card border-0">
+                    <a [routerLink]="[ '/discount', discount.id ]" routerLinkActive="route-active"
+                        class="card-link text-decoration-none font-fm font-title" aria-current="page">
+                        <div class="img-border">
+                            <img src="{{ discount.imgPath }}" class="card-img-top card-border" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title font-title">{{ discount.title }}</h5>
+                        </div>
+                    </a>
+
+                    <div class="card-footer d-flex justify-content-center">
+                        <a [routerLink]="[ '/discount', discount.id ]" class="btn btn-light btn-details">детальніше</a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

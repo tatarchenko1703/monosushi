@@ -1,0 +1,42 @@
+<div class="margin-header"></div>
+
+<div class="spacer-md font-fm"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-3 text-center">
+            <div class="center-info">
+                <p class="title text-admin font-fm" data-test="bool(false)"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-2 p-0">
+    <div class="d-flex align-items-start justify-content-between">
+        <div class="col-xl-1 col-lg-1 col-1 text-start mx-2" id="v-pills-tab">
+            <div class="list-group font-fm">
+                <div class="row">
+                    <button class="btn btn-primary" [routerLink]="['discount']" routerLinkActive="active"
+                        type="button">Акції</button>
+
+                </div>
+
+                <div class="row">
+                    <button class="btn btn-primary" [routerLink]="['category']" routerLinkActive="active"
+                        type="button">Категорії</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary" [routerLink]="['product']" routerLinkActive="active"
+                        type="button">Товари</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary" [routerLink]="['order']" routerLinkActive="active"
+                        type="button">Замовлення</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content w-100" id="v-pills-tabContent">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

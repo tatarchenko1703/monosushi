@@ -1,0 +1,135 @@
+.margin-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 110px;
+    background-color: aqua;
+}
+
+.green {
+    color: #27ae60;
+}
+
+.yellow {
+    color: #f2c94c;
+}
+
+.spacer-lg {
+    height: 70px;
+}
+
+.spacer-md {
+    height: 40px;
+}
+
+.spacer-sm{
+    height: 30px;
+}
+
+.font-fm {
+    font-family: "RotondaC";
+    color: #252525;
+}
+
+.font-input {
+    font-family: "RotondaC";
+    color: #252525;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.text-discount {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Акції";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-prod {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Продукти";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-prod-drink {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Напої";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-prod-souse {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Соуси";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-prod-roll {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Роли";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-prod-set {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Сети";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-delivery {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Доставка та оплата";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-about {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Про нас";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
+.text-admin {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "";
+        border-top: 6px solid $primary-bg-color;
+    }
+}

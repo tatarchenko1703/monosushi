@@ -1,0 +1,55 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Роли",
+      "path": "rolls",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+    },
+    {
+      "id": 2,
+      "name": "Сети",
+      "path": "sets",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=bf8b6069-8dbb-4bff-bd9d-cce7406d2209"
+    },
+    {
+      "id": 3,
+      "name": "Напої",
+      "path": "drinks",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=56ffa745-0682-4052-9d7b-c2ef57339ebd"
+    },
+    {
+      "id": 4,
+      "name": "Соуси",
+      "path": "souses",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-souse.svg?alt=media&token=025bdc6c-d2ef-4f3c-8e46-6f76dd6e8b37"
+    }
+  ],
+  "discounts": [
+    {
+      "id": 1,
+      "date": "01.01.2023",
+      "name": "ролл тижня",
+      "title": "роли акція",
+      "description": "50% знижки на 'Рол тижня'",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Froll-tijnya.jpg?alt=media&token=d957d568-e1e5-4e8a-9919-da3d89dba213"
+    },
+    {
+      "id": 2,
+      "date": "01.01.2023",
+      "name": "фото акція",
+      "title": "фотомарафон",
+      "description": "Щоб стати учасником розіграшу варто зробити будь-який контент на задану тему з нашими ролами. Це може бути фото, відео, tik-tok",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fphoto-start.jpg?alt=media&token=3652318b-8c15-4845-8ea7-f0600f7f0685",
+      "imagePath": "../../../assets/images/photo-start.jpg"
+    },
+    {
+      "name": "йцуйцу",
+      "title": "йцуйцу",
+      "description": "йцуйцуйцуйцу",
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fpresent.jpg?alt=media&token=0a124d4b-1b44-46c9-b6cd-d988f119ecba",
+      "date": "2023-02-24T06:45:04.719Z",
+      "id": 3
+    }
+  ]
+}

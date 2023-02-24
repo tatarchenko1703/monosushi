@@ -1,0 +1,108 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/style.scss';
+
+
+.btn-primary {
+    border-radius: 0;
+    padding: 20px;
+    border: none;
+    // outline: none;
+    font-size: 22px;
+    color: #525252;
+    background-color: transparent;
+    // border: 1px solid #dbdada;
+    height: 100%;
+    // outline: 1px solid #dbdada;
+    border-top: 6px solid transparent;
+    // outline-top: 0;
+    // border-bottom: 1px solid #dbdada;
+    // border-left: 1px solid #dbdada;
+    // border-right: 1px solid #dbdada;
+    // transition: 0.3s;
+
+    // &:first-child {
+    //     outline: none;
+    //     border-top: 1px solid #dbdada;
+    // }
+
+    // &::selection {
+    //     outline: none;
+    //     background-color: transparent;
+    // }
+
+    &:focus,
+    &:active {
+        border: none;
+        // outline: none;
+        color: #252525;
+        font-weight: 700;
+        background-color: transparent;
+        border-top: 6px solid $primary-bg-color;
+        transition: 0.2s;
+    }
+
+
+    &:hover {
+        // outline: none;
+        color: #525252;
+        font-weight: 600;
+    }
+
+    // .active {
+    //     border-top: 6px solid $primary-bg-color;
+    // }
+}
+
+.btn.active {
+    color: #252525;
+    // outline: none;
+    font-weight: 700;
+    border-left: none;
+    // border-bottom: none;
+    border-right: none;
+    border-top: 6px solid $primary-bg-color;
+    border-bottom: 1px solid $primary-bg-color; // transition: 0.2s;
+}
+
+.llist-group {
+    font-size: 22px;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    color: #525252;
+    text-align: center;
+
+    .list-group-item {
+        padding: 20px 0;
+        border-top: 0;
+        border-bottom: 1px solid #dbdada;
+        border-left: 1px solid #dbdada;
+        border-right: 1px solid #dbdada;
+        outline: none;
+        border-radius: 0px;
+        background-color: transparent;
+        color: #525252;
+
+        // &:first-child {
+        // border-top: 1px solid #dbdada;
+        // color: #252525;
+        // font-weight: 700;
+        // }
+
+        &:hover {
+            font-weight: 700;
+            background-color: transparent;
+        }
+
+        &:focus,
+        &:active {
+            border: none;
+            outline: none;
+            color: #252525;
+            font-weight: 700;
+            // background-color: aqua;
+            border-top: 6px solid $primary-bg-color;
+        }
+
+    }
+}

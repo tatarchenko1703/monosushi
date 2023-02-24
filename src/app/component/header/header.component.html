@@ -1,0 +1,101 @@
+<header class="header">
+    <div class="header-inner">
+        <div class="header-nav">
+            <div class="header-logo">
+                <a class="navbar-brand mono-brand" [routerLink]="[ '/' ]">
+                    <img src="../../../assets/images/logo.svg" alt="">
+                </a>
+
+            </div>
+
+            <nav class="main-nav">
+                <ul class="navbar-nav p-0 m-0 main-nav" style="height: 90%">
+                    <!-- <li class="nav-item d-flex align-items-center main-nav-item"> -->
+                    <li class="nav-item main-nav-item">
+                        <a routerLink="discount" routerLinkActive="route-active"
+                            class="nav-link d-flex flex-column justify-content-center text-center nav-button draw"
+                            aria-current="page">
+                            <img src="../../../assets/images/nav-img-gift.svg" height="40px">
+                            <span class="fw-semibold descr">
+                                Акції
+                            </span>
+                        </a>
+                    </li>
+                    <!-- class="nav-item d-flex align-items-center main-nav-item"> -->
+                    <li *ngFor="let category of headerCategories" 
+                        class="nav-item main-nav-item">
+                        <a 
+                            routerLink="product/{{category.path}}" 
+                            routerLinkActive="route-active"
+                            class="nav-link d-flex flex-column justify-content-center text-center nav-button draw" aria-current="page">
+                            <img src="{{ category.imgPath }}" height="40px">
+                            <span class="fw-semibold descr">
+                                {{ category.name }}
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div>
+            <button class="btn open-button" id="open" (click)="openMenu()">
+                <a class="nav-link open-button-link nav-button draw" aria-current="page">
+                    <img src="../../../assets/images/three.svg" height="40px">
+                </a>
+            </button>
+        </div>
+        
+        <div class="p-0 m-0 d-flex phone-box">
+            <button type="button" class="btn text-center phone-btn">
+                <img src="../../../assets/images/phone.svg" alt="" height="30px" width="30px">
+            </button>
+        </div>
+        
+        <div class="p-0 mx-5 d-flex hour-box" style="height: 100%; width:400px">
+            <h4><b>(097) 878 08 37</b></h4>
+            <h6>Працюємо з <b>11:00</b> до <b>23:59</b></h6>
+        </div>
+        
+        <div class="p-0 m-0 d-flex user-box">
+            <a [routerLink]="['admin/discount']" routerLinkActive="route-active" class="nav-link user-link nav-button-admin draw"
+                aria-current="page">
+                <img src="../../../assets/images/user.svg" height="30px">
+                <span class="fw-semibold descr">
+                </span>
+            </a>
+        </div>
+        
+        
+        <!-- <div class="header-basket open-cart"> -->
+        <div class="box-basket navbar-brand">
+            <div class="header-basket">
+                <i>
+                    <img src="../../../assets/images/basket.svg" alt="basket" oncontextmenu="return false">
+                    <span>10</span>
+                </i>
+                <div class="basket-price empty ">
+                    <b id="basket-total-price" class="card-total-price">0</b>
+                    <span>грн</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="burger_menu" id="burger">
+    <div class="burger_content">
+        <div class="box-list">
+            <div class="box-button">
+                <button class="btn m-0 p-0 w-100 ms-2 mb-3 text-start" id="close" (click)="closeMenu()">
+                    <a class="nav-link burger-box" aria-current="page">
+                        <img src="../../../assets/images/close.svg" height="30px">
+                    </a>
+                </button>
+            </div>
+            <a routerLink="delivery" class="item nav_link lh-sm" (click)="closeMenu()">Доставка та оплата</a>
+            <a routerLink="about" class="item nav_link lh-sm" (click)="closeMenu()">Про нас</a>
+            <a routerLink='discount' class="item nav_link lh-sm" (click)="closeMenu()">Акції</a>
+        </div>
+    </div>
+</div>

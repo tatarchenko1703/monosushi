@@ -1,0 +1,72 @@
+@import '../../shared/styles/variables';
+
+.ft-border-top {
+    border-top: 6px solid $primary-bg-color;
+}
+
+.br-color-red {
+    border: 1px solid red;
+}
+
+.br-color-green {
+    border: 1px solid green;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1920px;
+}
+
+.footer-top {
+
+    width: 100%;
+    // height: 150px;
+    background-color: #fff;
+}
+
+.footer-bottom {
+margin-top: 30px;
+    width: 100%;
+    // height: 150px;
+    background-color: #fff;
+}
+
+.nav-image {
+    height: 40px;
+    width: 30%;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+.nav-image-card {
+    height: 40%;
+    width: 100%;
+}
+
+.phone-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: $primary-bg-color;
+    border: 0;
+    outline: 2px solid $primary-bg-color;
+
+    &:hover {
+        background-color: $primary-bg-color-hover;
+    }
+}
+
+.fs-sm-title{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.fs-sm-info {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.fs-sm-link {
+    font-size: 16px;
+    font-weight: 300;
+}
