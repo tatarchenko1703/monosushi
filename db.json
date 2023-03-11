@@ -51,5 +51,249 @@
       "date": "2023-02-24T06:45:04.719Z",
       "id": 3
     }
+  ],
+  "groups": [
+    {
+      "name": "Всі",
+      "id": 1
+    },
+    {
+      "name": "Філадельфія",
+      "id": 2
+    },
+    {
+      "name": "Каліфорнія",
+      "id": 3
+    },
+    {
+      "name": "Запечені",
+      "id": 4
+    },
+    {
+      "name": "Преміум",
+      "id": 6
+    },
+    {
+      "name": "Макі",
+      "id": 7
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "id": 1,
+        "name": "Роли",
+        "path": "rolls",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+      },
+      "group": {
+        "name": "Філадельфія",
+        "id": 2
+      },
+      "name": "Філадельфія з лососем",
+      "sklad": "Риc, крем сир, огірок, лосось",
+      "weight": 280,
+      "price": 247,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Ffiladelfiya.png?alt=media&token=2bf2c707-c2f8-43f9-9ea4-984781995c02",
+      "id": 1
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "Роли",
+        "path": "rolls",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+      },
+      "group": {
+        "name": "Філадельфія",
+        "id": 2
+      },
+      "name": "Запечений сирний з лососем",
+      "sklad": "Рис, крем сир, салат айсберг, лосось, кунжут, сирний соус, унагі соус",
+      "weight": 330,
+      "price": 147,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F2.-zapechenyj-syrnyj-z-los.jpg?alt=media&token=d665d6ea-179f-4d29-b624-348b1d7f97ff",
+      "id": 2
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "Роли",
+        "path": "rolls",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+      },
+      "group": {
+        "name": "Філадельфія",
+        "id": 2
+      },
+      "name": "Філадельфія в кунжуті",
+      "sklad": "Рис, крем сир, огірок, лосось, кунжут",
+      "weight": 240,
+      "price": 228,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg?alt=media&token=0a59fbc2-8b6c-43b3-a485-697559c9c694",
+      "id": 3
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "Роли",
+        "path": "rolls",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+      },
+      "group": {
+        "name": "Філадельфія",
+        "id": 2
+      },
+      "name": "Запечений моно з лососем",
+      "sklad": "Рис, крем сир, салат айсберг, лосось, кунжут, моно соус, унагі соус",
+      "weight": 330,
+      "price": 267,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F1.-zapechenyj-mono-z-los.jpg.pagespeed.ce.CQzkn9F7wB.jpg?alt=media&token=5791894f-65d2-48aa-b8ea-aab924f82a4f",
+      "id": 4
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "Роли",
+        "path": "rolls",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+      },
+      "group": {
+        "name": "Каліфорнія",
+        "id": 3
+      },
+      "name": "Каліфорнія з крабом",
+      "sklad": "Рис, спайсі соус, авокадо, огірок, краб, кунжут",
+      "weight": 250,
+      "price": 223,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg?alt=media&token=0db12a80-d498-45f3-b3cb-3ea40aada094",
+      "id": 5
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "Роли",
+        "path": "rolls",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=928df8cb-5f9b-4166-922e-02b9744fb9f2"
+      },
+      "group": {
+        "name": "Запечені",
+        "id": 4
+      },
+      "name": "Запечений моно з креветкою",
+      "sklad": "Рис, крем сир, салат айсберг, креветка, кунжут, моно соус, унагі соус",
+      "weight": 330,
+      "price": 277,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F1.-zapechenyj-mono-z-los.jpg.pagespeed.ce.CQzkn9F7wB.jpg?alt=media&token=ad886c7f-2e6a-419c-b9ab-3a5e374f36b5",
+      "id": 6
+    },
+    {
+      "category": {
+        "id": 2,
+        "name": "Сети",
+        "path": "sets",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=bf8b6069-8dbb-4bff-bd9d-cce7406d2209"
+      },
+      "group": {
+        "name": "Всі",
+        "id": 1
+      },
+      "name": "Сет Філадельфія",
+      "sklad": "Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+      "weight": 1070,
+      "price": 999,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fkaliforniya-scaled.jpg.pagespeed.ce.VRDkpzkAjV.jpg?alt=media&token=7c70bef6-b71b-4366-8163-bf79632d86ba",
+      "id": 7
+    },
+    {
+      "category": {
+        "id": 3,
+        "name": "Напої",
+        "path": "drinks",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=56ffa745-0682-4052-9d7b-c2ef57339ebd"
+      },
+      "group": {
+        "name": "Всі",
+        "id": 1
+      },
+      "name": "sdfsfdkkk",
+      "sklad": "sdfsdf",
+      "weight": 12,
+      "price": 12,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Ffanta-033.jpg.pagespeed.ce.AS23fDMltR.jpg?alt=media&token=1c084bce-4e77-4854-9296-fd67f6ed7d3d",
+      "id": 8
+    },
+    {
+      "category": {
+        "id": 3,
+        "name": "Напої",
+        "path": "drinks",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=56ffa745-0682-4052-9d7b-c2ef57339ebd"
+      },
+      "group": {
+        "name": "Всі",
+        "id": 1
+      },
+      "name": "qweqwe",
+      "sklad": "qweqwe",
+      "weight": 123,
+      "price": 123,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F22334.jpg?alt=media&token=e63fc225-8267-4630-93ce-cfa07c172d38",
+      "id": 9
+    },
+    {
+      "category": {
+        "id": 4,
+        "name": "Соуси",
+        "path": "souses",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-souse.svg?alt=media&token=025bdc6c-d2ef-4f3c-8e46-6f76dd6e8b37"
+      },
+      "group": {
+        "name": "Всі",
+        "id": 1
+      },
+      "name": "qweqwe",
+      "sklad": "qweqwe",
+      "weight": 123,
+      "price": 123,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F22334.jpg?alt=media&token=ab4517af-8a23-4b4d-9fd2-505c892f22f0",
+      "id": 10
+    },
+    {
+      "category": {
+        "id": 3,
+        "name": "Напої",
+        "path": "drinks",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=56ffa745-0682-4052-9d7b-c2ef57339ebd"
+      },
+      "group": {
+        "name": "Всі",
+        "id": 1
+      },
+      "name": "qweqweqwe",
+      "sklad": "qweqwe",
+      "weight": 123,
+      "price": 123,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Ffanta-033.jpg.pagespeed.ce.AS23fDMltR.jpg?alt=media&token=7805dc80-1104-41e9-aa52-d540b241a3fe",
+      "id": 11
+    },
+    {
+      "category": {
+        "id": 2,
+        "name": "Сети",
+        "path": "sets",
+        "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=bf8b6069-8dbb-4bff-bd9d-cce7406d2209"
+      },
+      "group": {
+        "name": "Всі",
+        "id": 1
+      },
+      "name": "qweqweqwe",
+      "sklad": "qweqweqweqweqweqwe",
+      "weight": 1,
+      "price": 1,
+      "imgPath": "https://firebasestorage.googleapis.com/v0/b/ua-monosushi.appspot.com/o/images%2F2.-zapechenyj-syrnyj-z-los.jpg?alt=media&token=126b8a0e-d890-4560-94a6-497edac96e2e",
+      "id": 12
+    }
   ]
 }

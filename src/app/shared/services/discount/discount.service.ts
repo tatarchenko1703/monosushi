@@ -7,6 +7,7 @@ import { IDiscountRequest, IDiscountResponse } from '../../interfaces/discount/d
 @Injectable({
   providedIn: 'root'
 })
+  
 export class DiscountService {
 
   private url = environment.BACKEND_URL;

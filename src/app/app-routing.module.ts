@@ -21,31 +21,39 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
+import { AdminGroupComponent } from './admin/admin-group/admin-group.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'discount', component: DiscountComponent },
   { path: 'discount/:id', component: DiscountDetailComponent },
-  { path: 'product/:category', component: ProductComponent },
+  // { path: 'product/:category', component: ProductComponent },
 
-  {
-    path: 'product', component: ProductComponent, children: [
-      { path: 'rolls', component: RollsComponent },
-      { path: 'sets', component: SetsComponent },
-      { path: 'drinks', component: DrinksComponent },
-      { path: 'souses', component: SousesComponent }
+  // {
+  //   path: 'product', component: ProductComponent, children: [
+  //     { path: 'rolls', component: RollsComponent },
+  //     { path: 'sets', component: SetsComponent },
+  //     { path: 'drinks', component: DrinksComponent },
+  //     { path: 'souses', component: SousesComponent },
+  //     { path: '', pathMatch: 'full', redirectTo: 'rolls' }
 
-    ]
-  },
+  //   ]
+  // },
+  { path: 'product/rolls', component: RollsComponent },
+  { path: 'product/sets', component: SetsComponent },
+  { path: 'product/drinks', component: DrinksComponent },
+  { path: 'product/souses', component: SousesComponent },
 
   { path: 'delivery', component: DeliveryComponent },
   { path: 'about', component: AboutComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'confirm', component: AdminComponent },
   {
     path: 'admin', component: AdminComponent, children: [
       { path: 'discount', component: AdminDiscountComponent },
       { path: 'category', component: AdminCategoryComponent },
+      { path: 'group', component: AdminGroupComponent },
       { path: 'product', component: AdminProductComponent },
       { path: 'order', component: AdminOrderComponent },
       { path: '', pathMatch: 'full', redirectTo: 'discount' }

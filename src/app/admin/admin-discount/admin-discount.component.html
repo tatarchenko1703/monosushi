@@ -1,113 +1,112 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-3 px-5 mt-1">
-            <button type="button" [disabled]="editStatus" class="add-button w-100"
-                (click)="showForm(!isViewForm)">Додати
-                акцію</button>
+            <button type="button" class="add-button w-100"
+                (click)="toggleOpenForm()">{{ isViewForm ? 'Закрити' : 'Додати акцію' }}</button>
         </div>
     </div>
 
-    <div class="row">
-        <section id="edit">
+    <!-- <div class="row"> -->
+    <ng-container *ngIf="isViewForm">
+        <div class="collapse" id="collapseExample" [ngClass]="{'show': isViewForm}">
+            <section id="edit">
+                <div class="col-8 px-5 m-0">
+                    <form [formGroup]="discountForm" id="discountForm" class="form" (ngSubmit)="addDiscount()">
+                        <div class="mb-3 d-flex flex-row justify-content-evenly">
+                            <div class="form-floating input-width p-1">
+                                <input formControlName="name" name="name" type="text" class="form-control font-input"
+                                    id="name" placeholder="*назва..">
+                                <label for="name">Назва
 
-            <div class="col-8 px-5 m-0">
-                <form [formGroup]="discountForm" id="discountForm" class="form hide" (ngSubmit)="addDiscount()">
-                    <div class="mb-3 d-flex flex-row justify-content-evenly">
-                        <div class="form-floating input-width p-1">
-                            <input formControlName="name" name="name" type="text" class="form-control font-input"
-                                id="name" placeholder="*назва..">
-                            <label for="name">Назва
+                                </label>
+                            </div>
 
-                            </label>
-                        </div>
+                            <div class="form-floating input-width p-1">
+                                <input formControlName="title" name="title" type="text" class="form-control font-input"
+                                    id="title" placeholder="*заголовок">
+                                <label for="title">Заголовок
 
-                        <div class="form-floating input-width p-1">
-                            <input formControlName="title" name="title" type="text" class="form-control font-input"
-                                id="title" placeholder="*заголовок">
-                            <label for="title">Заголовок
-
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-floating mb-3 d-flex flex-row justify-content-between  p-1">
-                        <textarea formControlName="description" name="description" id="description"
-                            class="form-control font-input" style="height: 100px" placeholder="*опис">
-                    </textarea>
-                        <label for="description">Опис
-                        </label>
-                    </div>
-
-                    <div class="p-1">
-                        <div class="mb-3 mt-3 w-100 d-flex flex-row justify-content-start align-items-end"
-                            style="height: 100px">
-                            <img [src]="valueByControl('imgPath')" style="height: 100%" alt="">
-
-                            <button *ngIf="isDelete" class="btn btn-danger mx-3" (click)="deleteImage()">Delete
-                            </button>
-                        </div>
-
-                        <div class="mb-3 d-flex flex-row justify-content-start align-items-center box p-2 w-100">
-                            <div class="mb-3 w-100">
-                                <label for="formFile" class="form-label font-input">Завантажите зображення</label>
-                                <input class="form-control" type="file" id="formFile" (change)="upload($event)">
+                                </label>
                             </div>
                         </div>
 
-                        <div class="progress mb-3">
-                            <div class="progress-bar progress-bar-striped" role="progressbar"
-                                [style.width.%]="uploadPercent" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="form-floating mb-3 d-flex flex-row justify-content-between  p-1">
+                            <textarea formControlName="description" name="description" id="description"
+                                class="form-control font-input" style="height: 100px" placeholder="*опис">
+                        </textarea>
+                            <label for="description">Опис
+                            </label>
                         </div>
-                    </div>
 
-                    <div class="mb-3">
-                    </div>
-                    <div class="col-2 d-flex justify-content-between  p-1">
-                        <button [disabled]="discountForm.invalid" type="submit" class="btn btn-success w-50">
-                            {{ editStatus ? 'Save' : 'Add' }}
-                        </button>
-                        <button type="button" class="btn btn-warning w-50 mx-2" (click)="showForm(false)">Cancel
-                        </button>
-                    </div>
-                </form>
+                        <div class="p-1">
+                            <div class="mb-3 mt-3 w-100 d-flex flex-row justify-content-start align-items-end"
+                                style="height: 100px">
+                                <img [src]="valueByControl('imgPath')" style="height: 100%" alt="">
 
-            </div>
-        </section>
+                                <button *ngIf="isDelete" class="btn btn-danger mx-3" (click)="deleteImage()">Delete
+                                </button>
+                            </div>
 
-        <div class="col-12 px-5">
-            <table class="table table-striped pb-5">
-                <thead>
-                    <tr>
-                        <th scope="col" style="width: 7%; text-align: center;">Дата</th>
-                        <th scope="col" style="width: 15%">Назва</th>
-                        <th scope="col" style="width: 23%">Заголовок</th>
-                        <th scope="col" style="width: 35%">Опис</th>
-                        <th scope="col" style="width: 10%; text-align: center;">Картинка</th>
-                        <th scope="col" style="width: 10%; text-align: center;">Дії</th>
-                    </tr>
-                </thead>
+                            <div class="mb-3 d-flex flex-row justify-content-start align-items-center box p-2 w-100">
+                                <div class="mb-3 w-100">
+                                    <label for="formFile" class="form-label font-input">Завантажите зображення</label>
+                                    <input class="form-control" type="file" id="formFile" (change)="upload($event)">
+                                </div>
+                            </div>
 
-                <tbody>
-                    <tr *ngFor="let discount of adminDiscounts">
-                        <td style="text-align: center;"> {{ discount.date | date:'dd.MM.YYYY' }}</td>
-                        <td> {{ discount.name }}</td>
-                        <td> {{ discount.title }}</td>
-                        <td> {{ discount.description }}</td>
-                        <td style="text-align: center;">
-                            <img src="{{ discount.imgPath }}" alt="" style="width: 90%">
-                        </td>
-                        <td style="text-align: center;">
-                            <button [disabled]="editStatus" (click)="editDiscount(discount)" type="button"
-                                class="btn w-100 p-0">Редагувати
+                            <div class="progress mb-3">
+                                <div class="progress-bar progress-bar-striped" role="progressbar"
+                                    [style.width.%]="uploadPercent" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                        </div>
+                        <div class="col-2 d-flex justify-content-between  p-1">
+                            <button [disabled]="discountForm.invalid" type="submit" class="btn btn-success w-50">
+                                {{ editStatus ? 'Save' : 'Add' }}
                             </button>
-                            <button [disabled]="editStatus" (click)="deleteDiscount(discount)" type="button"
-                                class="btn w-100 p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Видалити
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
         </div>
+    </ng-container>
+
+    <div class="col-12 px-5">
+        <table class="table table-striped pb-5">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 7%; text-align: center;">Дата</th>
+                    <th scope="col" style="width: 15%">Назва</th>
+                    <th scope="col" style="width: 23%">Заголовок</th>
+                    <th scope="col" style="width: 35%">Опис</th>
+                    <th scope="col" style="width: 10%; text-align: center;">Картинка</th>
+                    <th scope="col" style="width: 10%; text-align: center;">Дії</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let discount of adminDiscounts">
+                    <td style="text-align: center;"> {{ discount.date | date:'dd.MM.YYYY' }}</td>
+                    <td> {{ discount.name }}</td>
+                    <td> {{ discount.title }}</td>
+                    <td> {{ discount.description }}</td>
+                    <td style="text-align: center;">
+                        <img src="{{ discount.imgPath }}" alt="" style="width: 90%">
+                    </td>
+                    <td style="text-align: center;">
+                        <button [disabled]="editStatus" (click)="editDiscount(discount)" type="button"
+                            class="btn w-100 p-0">Редагувати
+                        </button>
+                        <button [disabled]="editStatus" (click)="deleteDiscount(discount)" type="button"
+                            class="btn w-100 p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Видалити
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="row">

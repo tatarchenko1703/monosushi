@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 px-5 mt-1">
+            <button type="button" class="add-button w-100" (click)="toggleOpenForm()">{{ isViewForm ? 'Закрити' :
+                'Додати групу' }}</button>
+        </div>
+    </div>
+
+    <!-- <div class="row"> -->
+    <ng-container *ngIf="isViewForm">
+        <div class="collapse" id="collapseExample" [ngClass]="{'show': isViewForm}">
+            <section id="edit">
+                <div class="col-10 px-5 m-0">
+                    <form [formGroup]="groupForm" id="discountForm" class="form" (ngSubmit)="addGroup()">
+                        <div class="mb-3 d-flex flex-row justify-content-start">
+                            <div class="form-floating input-width p-1">
+                                <input formControlName="name" name="name" type="text" class="form-control font-input"
+                                    id="name" placeholder="*назва..">
+                                <label for="name">Назва
+                                </label>
+                            </div>
+                            <div class="col-2 d-flex justify-content-between  p-1">
+                                <button [disabled]="groupForm.invalid" type="submit" class="btn btn-success w-50">
+                                    {{ editStatus ? 'Save' : 'Add' }}
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="mb-3">
+                        </div>
+                        <div class="col-2 d-flex justify-content-between  p-1">
+                            <button [disabled]="groupForm.invalid" type="submit" class="btn btn-success w-50">
+                                {{ editStatus ? 'Save' : 'Add' }}
+                            </button>
+                        </div> -->
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </ng-container>
+
+    <div class="col-12 px-5">
+        <table class="table table-striped table-hover pb-5">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 90%">Назва</th>
+                    <th scope="col" style="width: 10%; text-align: center;">Дії</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr (click)="onClick($event)" *ngFor="let group of adminGroups">
+                    <td> {{ group.name }}</td>
+                    <td style="text-align: center;">
+                        <button [disabled]="editStatus" (click)="editGroup(group)" type="button"
+                            class="btn w-100 p-0">Редагувати
+                        </button>
+                        <button [disabled]="editStatus" (click)="deleteGroup(group)" type="button"
+                            class="btn w-100 p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Видалити
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-custom text-dark">
+                        <h1 class="modal-title fs-3 fw-bold" id="staticBackdropLabel">Видалити групу</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Підтвердіть видалення групи <b>"{{
+                                currentGroupName }}"</b> </h1>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-custom" data-bs-dismiss="modal"
+                            (click)="deleteGroupById(currentGroupId)">Delete
+                        </button>
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

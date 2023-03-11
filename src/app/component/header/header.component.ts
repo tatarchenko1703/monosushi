@@ -26,8 +26,6 @@ export class HeaderComponent {
 
   loadCategories(): void {
     this.categoryService.getAll().subscribe(data => {
-      console.log(data);
-      
       this.headerCategories = data;
     })
   }

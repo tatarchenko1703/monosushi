@@ -95,10 +95,6 @@ b {
     width: 50%;
 }
 
-.input-width-number {
-    width: 20%;
-}
-
 .box {
     // height: 200px;
     border-radius: 4px;
@@ -108,4 +104,27 @@ b {
 .btn-light {
     background-color: #e9ecef;
     border-color: #ced4da;
+}
+
+.table-hover {
+    position: relative;
+}
+
+.table-hover>tbody>tr:hover>* {
+    color: #252525;
+    background-color: $primary-bg-color;
+}
+
+.table-hover>tbody>tr:hover>td>button {
+    color: #252525;
+}
+
+.table-hover tbody tr .active:after {
+    border-top: 3px solid orange;
+    border-bottom: 3px solid orange;
+}
+
+.table-hover tbody tr .active  {
+    border-top: 3px solid orange;
+    border-bottom: 3px solid orange;
 }

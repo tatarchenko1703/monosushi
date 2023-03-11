@@ -5,14 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminGroupComponent } from './admin/admin-group/admin-group.component';
 
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
+import { ConfirmComponent } from './component/confirm/confirm/confirm.component';
 
 import { AboutComponent } from './pages/about/about.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -50,16 +54,20 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     DrinksComponent,
     RollsComponent,
     SetsComponent,
-    SousesComponent
+    SousesComponent,
+    AdminGroupComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule, // required animations module
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

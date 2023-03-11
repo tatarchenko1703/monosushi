@@ -1,0 +1,19 @@
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-custom text-dark">
+                <h1 class="modal-title fs-3 fw-bold" id="staticBackdropLabel">{{ title }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ prompt }} <b>"{{ name }}"</b> </h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-custom" data-bs-dismiss="modal"
+                    (click)="isDelete(true)">Delete</button>
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="isDelete(false)">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

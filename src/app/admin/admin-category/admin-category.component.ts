@@ -5,7 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interfaces/category/category.interface';
-import { getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
+import { ImageService } from 'src/app/shared/services/image/image.service';
+import { ToastrService } from 'ngx-toastr';
+// import { ConfirmComponent } from 'src/app/component/confirm/confirm/confirm.component';
 
 
 @Component({
@@ -13,6 +15,7 @@ import { getDownloadURL, percentage, ref, Storage, uploadBytesResumable } from '
   templateUrl: './admin-category.component.html',
   styleUrls: ['./admin-category.component.scss']
 })
+  
 export class AdminCategoryComponent {
   public adminCategories: Array<ICategoryResponse> = [];
   public categoryForm!: FormGroup;
@@ -23,12 +26,16 @@ export class AdminCategoryComponent {
   public currentCategoryName = '';
   public isDelete = false;
   public isViewForm = false;
+  
 
 
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
-    private storage: Storage
+    private imageService: ImageService,
+    // private storage: Storage,
+    private toastr: ToastrService,
+    // private confirm: ConfirmComponent
   ) { }
 
   ngOnInit(): void {
@@ -55,10 +62,12 @@ export class AdminCategoryComponent {
       this.categoryService.update(this.categoryForm.value, this.currentCategoryId).subscribe(() => {
         this.loadCategories();
       })
+      this.toastr.success('One product is edited!');
     } else {
       this.categoryService.create(this.categoryForm.value).subscribe(() => {
         this.loadCategories();
       })
+      this.toastr.success('One product is added!');
     }
     this.categoryForm.patchValue({
       imgPath: ""
@@ -68,11 +77,13 @@ export class AdminCategoryComponent {
     this.isUploaded = false;
     this.isDelete = false;
     this.uploadPercent = 0;
-    this.showForm(false);
+    this.isViewForm = false;
+    // this.showForm(false);
   }
 
   editCategory(category: ICategoryResponse): void {
-    this.showForm(true);
+    // this.showForm(true);
+    this.isViewForm = true;
     this.categoryForm.patchValue({
       name: category.name,
       path: category.path,
@@ -88,12 +99,15 @@ export class AdminCategoryComponent {
     this.currentCategoryId = category.id;
     this.currentCategoryName = category.name;
 
+    // this.confirm.prompt = `Ви дійсно бажаєте видалити категорію ${this.currentCategoryName}`;
+    // this.confirm.title = 'Видалити категорію';
   }
 
   deleteCategoryById(categoryid: number): void {
     this.categoryService.delete(categoryid).subscribe(() => {
       this.loadCategories();
     })
+    this.toastr.success('One product is deleted!');
   }
 
   deleteImage(): void { 
@@ -104,62 +118,66 @@ export class AdminCategoryComponent {
 
   }
 
-  showForm(edit: boolean): void {
-    let form = document.getElementById('categoryForm');
-    if (edit) {
-      form?.classList.remove('hide');
-      form?.classList.add('show');
-      this.categoryForm.reset();
-      this.editStatus = false;
-      this.isDelete = false;
-      this.isViewForm = true;
-    } else {
-      form?.classList.remove('show');
-      form?.classList.add('hide');
-      this.editStatus = false;
-      this.uploadPercent = 0;
-      this.isViewForm = false;
-    }
-  }
+  // showForm(edit: boolean): void {
+  //   let form = document.getElementById('categoryForm');
+  //   if (edit) {
+  //     form?.classList.remove('hide');
+  //     form?.classList.add('show');
+  //     this.categoryForm.reset();
+  //     this.editStatus = false;
+  //     this.isDelete = false;
+  //     this.isViewForm = true;
+  //   } else {
+  //     form?.classList.remove('show');
+  //     form?.classList.add('hide');
+  //     this.editStatus = false;
+  //     this.uploadPercent = 0;
+  //     this.isViewForm = false;
+  //   }
+  // }
 
 
   upload(event: any): void {
-    
     const file = event.target.files[0];
-    console.log(file);
-    this.uploadFile('images', file.name, file)
+    this.imageService.uploadFile('images', file.name, file)
       .then(data => {
         this.categoryForm.patchValue({
           imgPath: data
         });
         this.isUploaded = true;
-        this.isDelete = true;
       })
       .catch(err => {
         console.log(err);
       })
   }
 
-  async uploadFile(folder: string, name: string, file: File | null): Promise<string> {
-    const path = `${folder}/${name}`;
-    let url = '';
-    if (file) {
-      try {
-        const storageRef = ref(this.storage, path);
-        const task = uploadBytesResumable(storageRef, file);
-        percentage(task).subscribe(data => {
-          this.uploadPercent = data.progress
-        });
-        await task;
-        url = await getDownloadURL(storageRef);
-      } catch (e: any) {
-        console.error(e);
-      }
-    } else {
-      console.log('wrong format');
-    }
-    return Promise.resolve(url);
+  toggleOpenForm(): void {
+    this.isViewForm = !this.isViewForm;
+    this.editStatus = false;
+    this.isDelete = false;
+    this.categoryForm.reset();
   }
+
+  // async uploadFile(folder: string, name: string, file: File | null): Promise<string> {
+  //   const path = `${folder}/${name}`;
+  //   let url = '';
+  //   if (file) {
+  //     try {
+  //       const storageRef = ref(this.storage, path);
+  //       const task = uploadBytesResumable(storageRef, file);
+  //       percentage(task).subscribe(data => {
+  //         this.uploadPercent = data.progress
+  //       });
+  //       await task;
+  //       url = await getDownloadURL(storageRef);
+  //     } catch (e: any) {
+  //       console.error(e);
+  //     }
+  //   } else {
+  //     console.log('wrong format');
+  //   }
+  //   return Promise.resolve(url);
+  // }
 
   valueByControl(control: string): string {
     return this.categoryForm.get(control)?.value;
