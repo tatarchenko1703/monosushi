@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { GroupService } from 'src/app/shared/services/group/group.service';
 
-import { IProductRequest, IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
-import { IGroupRequest, IGroupResponse } from 'src/app/shared/interfaces/group/group.interface';
-import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interfaces/category/category.interface';
+import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
+import { IGroupResponse } from 'src/app/shared/interfaces/group/group.interface';
+import { ICategoryResponse } from 'src/app/shared/interfaces/category/category.interface';
 
 import { ImageService } from 'src/app/shared/services/image/image.service';
 import { ToastrService } from 'ngx-toastr';
@@ -16,7 +16,10 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './admin-product.component.html',
   styleUrls: ['./admin-product.component.scss']
 })
-export class AdminProductComponent {
+export class AdminProductComponent implements OnInit {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  
   public adminProducts: Array<IProductResponse> = [];
   public adminGroups: Array<IGroupResponse> = [];
   public adminCategories: Array<ICategoryResponse> = [];
@@ -33,6 +36,8 @@ export class AdminProductComponent {
 
   public currentCategory!: ICategoryResponse;
   public currentGroup!: IGroupResponse;
+  public currentCategoryPath = '';
+  public currentGroupPath = '';
 
   public currentCategoryId = 0;
   public currentGroupId = 0;
@@ -40,26 +45,25 @@ export class AdminProductComponent {
   public idxGroup    = 0;
   public idxCategory = 0;
 
-  private typeSelect = 0;
-
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,
     private categoryService: CategoryService,
     private groupService: GroupService,
     private imageService: ImageService,
-    private toastr: ToastrService
-  ) { }
+    private toastr: ToastrService,
+
+  )
+   
+    {    }
 
   ngOnInit(): void {
-    this.currentCategory = <ICategoryResponse>{};
-    this.currentGroup = <IGroupResponse>{};
-    this.currentCategory.id = 0;
-    this.currentGroup.id = 0;
     this.initProductForm();
-    this.loadProducts();
     this.loadCategories();
     this.loadGroups();
+    this.currentCategoryPath = 'rolls';
+    this.currentGroupPath = 'all';
+    this.loadProducts();
   }
 
   initProductForm(): void {
@@ -70,74 +74,47 @@ export class AdminProductComponent {
       sklad: [null, Validators.required],
       weight: [null, Validators.required],
       price: [null, Validators.required],
+      path: [null, Validators.required],
       imgPath: [null, Validators.required]
     });
   }
 
   loadProducts(): void {
-
-    if (this.typeSelect == 0) {
-      this.productService.getAll().subscribe(data => {
+    this.productService.getCustom(this.currentCategoryPath, this.currentGroupPath).subscribe(data => {
         this.adminProducts = data;
       })
-    } else { 
-      this.productService.getCustom(this.typeSelect, this.currentCategory.id, this.currentGroup.id).subscribe(data => {
-        this.adminProducts = data;
-      })
-    }
   }
 
   onHideCategory(): void { 
-    this.isVisibleGroup = this.currentCategory.id == 1;
-    this.currentCategoryId = this.currentCategory.id;
+
+    this.isVisibleGroup = this.currentCategory.path == 'rolls';
+   
+    this.productForm.patchValue({
+      category: this.currentCategory
+    });
+    
     if (!this.isVisibleGroup) {
       this.currentGroup = this.adminGroups[0];
-      this.currentGroupId = this.adminGroups[0].id;
       this.productForm.patchValue({
         group: this.currentGroup
       });
     }
-    this.productForm.patchValue({
-      category: this.currentCategory
-    });
   }
   
   onSelectProduct(): void { 
-    this.typeSelect = 0;
-    this.isVisibleGroup = false;
-    if (this.currentCategory.id == 1) {
-      this.isVisibleGroup = true;
-      if (this.currentGroup.id > 1) {
-        this.typeSelect = 1;
-        this.currentCategoryId = this.currentCategory.id;
-        this.currentGroupId = this.currentGroup.id;
-      } else {
-        this.typeSelect = 2;
-        this.currentCategoryId = this.currentCategory.id;
-        this.currentGroupId = 0;
-        this.currentGroup = this.adminGroups[0];
-      }
-    } else {
-      if (this.currentCategory.id > 0) { 
-        this.typeSelect = 2;
-        this.currentCategoryId = this.currentCategory.id;
-        this.currentGroupId = 0;
-      }
-      else {
-        this.currentCategoryId = 0;
-        this.currentGroupId = 0;
-        this.currentGroup = this.adminGroups[0];       
-      }
-    }
+
+    this.currentCategoryPath = this.currentCategory.path;
+    this.currentGroupPath = this.currentGroup.path;
+
+    this.onHideCategory();
     this.loadProducts();
-    this.currentCategoryId = 0;
-    this.currentGroupId = 0;
   }
 
   loadCategories(): void {
     this.categoryService.getAll().subscribe(data => {
       this.adminCategories = data;
       this.currentCategory = this.adminCategories[0];
+      this.currentCategoryPath = this.currentCategory.path;
       this.isVisibleGroup = true;
     })
   }
@@ -146,6 +123,7 @@ export class AdminProductComponent {
     this.groupService.getAll().subscribe(data => {
       this.adminGroups = data;
       this.currentGroup = this.adminGroups[0];
+      this.currentGroupPath = this.currentGroup.path;
     })
   }
 
@@ -213,6 +191,7 @@ export class AdminProductComponent {
       sklad: product.sklad,
       weight: product.weight,
       price: product.price,
+      path: product.path,
       imgPath: product.imgPath,
     });
 
@@ -225,12 +204,9 @@ export class AdminProductComponent {
   }
 
   deleteProductById(productid: number): void {
-    console.log(productid);
-    
     this.productService.delete(productid).subscribe(() => {
       this.currentCategoryId = this.currentCategory.id;
       this.currentGroupId = this.currentGroup.id;
-      // this.onSelectProduct();
       this.toastr.success('One product is deleted!');
       this.loadProducts();
     })
@@ -264,8 +240,6 @@ export class AdminProductComponent {
   }
 
   deleteImage(): void {
-    console.log();
-    
     this.productForm.patchValue({
       imgPath: ''
     });

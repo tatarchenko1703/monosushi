@@ -25,7 +25,7 @@
                     <li *ngFor="let category of headerCategories" 
                         class="nav-item main-nav-item">
                         <a 
-                            routerLink="product/{{category.path}}"
+                            routerLink="product/{{category.path}}/all"
                             routerLinkActive="route-active"
                             class="nav-link d-flex flex-column justify-content-center text-center nav-button draw" aria-current="page">
                             <img src="{{ category.imgPath }}" height="40px">
@@ -72,11 +72,11 @@
             <div class="header-basket">
                 <i>
                     <img src="../../../assets/images/basket.svg" alt="basket" oncontextmenu="return false">
-                    <span>10</span>
+                    <span>{{ totalProduct }}</span>
                 </i>
                 <div class="basket-price empty ">
-                    <b id="basket-total-price" class="card-total-price">0</b>
-                    <span>грн</span>
+                    <b id="basket-total-price" class="card-total-price">{{total}}</b>
+                    <span> грн</span>
                 </div>
             </div>
         </div>

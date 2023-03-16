@@ -2,7 +2,7 @@
     position: relative;
     top: 0;
     left: 0;
-    height: 110px;
+    height: 100px;
     background-color: aqua;
 }
 
@@ -59,7 +59,7 @@
     line-clamp: 2;
 
     &::before {
-        content: "Продукти";
+        content: "";
         border-top: 6px solid $primary-bg-color;
     }
 }

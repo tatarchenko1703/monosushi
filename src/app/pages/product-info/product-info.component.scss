@@ -1,0 +1,72 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/style.scss';
+
+.font-fm{
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.card{
+    border: 0;
+    outline: 0;
+}
+.text-title{
+    font-size: 18px;
+    font-weight: 600;
+    color: $primary-bg-color;
+}
+
+.text-info {
+    font-size: 18px;
+    font-weight: 400;
+    color: #252525;
+}
+
+.left {
+    border-right: 0;
+}
+
+.right {
+    border-left: 0;
+}
+
+.count {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+
+.btn-outline-secondary {
+    font-size: 18px;
+    color: #252525;
+
+    &:hover {
+        color: #252525;
+        background-color: $primary-bg-color;
+    }
+}
+
+.btn-outline-secondary::after:hover {
+    color: #252525;
+    background-color: $primary-bg-color;
+}
+
+.btn-primary {
+    width: 130px;
+    color: #252525;
+    font-weight: 600;
+    background-color: $primary-bg-color;
+    border: 1px solid $primary-bg-color;
+    outline: 2px solid $primary-bg-color;
+
+    &:hover {
+        background-color: $primary-bg-color-hover;
+    }
+}
+
+.card-img-top {
+    padding: 10px;
+    height: 250px;
+    width: 100%;
+    object-fit: contain;
+}

@@ -26,13 +26,10 @@ import { DiscountComponent } from './pages/discount/discount.component';
 import { DiscountDetailComponent } from './pages/discount-detail/discount-detail.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductComponent } from './pages/product/product.component';
-import { DrinksComponent } from './pages/product/drinks/drinks.component';
-import { RollsComponent } from './pages/product/rolls/rolls.component';
-import { SetsComponent } from './pages/product/sets/sets.component';
-import { SousesComponent } from './pages/product/souses/souses.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +48,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     DiscountDetailComponent,
     HomeComponent,
     ProductComponent,
-    DrinksComponent,
-    RollsComponent,
-    SetsComponent,
-    SousesComponent,
     AdminGroupComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    ProductInfoComponent
   ],
   imports: [
     BrowserModule,

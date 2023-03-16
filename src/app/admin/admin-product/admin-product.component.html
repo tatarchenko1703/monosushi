@@ -16,14 +16,14 @@
                         <div class="mb-3 d-flex flex-row justify-content-evenly">
                             <div class="col mb-3 p-1">
                                 <label for="name" class="form-label">Категорія</label>
-                                <select formControlName="category" [ngModel]="adminCategories[idxCategory]" (change)="onHideCategory()" class="form-select">
+                                <select formControlName="category" [ngModel]="adminCategories[idxCategory]" (change)="onHideCategory()" class="form-select font-input">
                                     <option [ngValue]="category" *ngFor="let category of adminCategories">{{category.name}}
                                     </option>
                                 </select>
                             </div>
                             <div *ngIf="isVisibleGroup" class="col mb-3 p-1">
                                 <label for="name" class="form-label">Група</label>
-                                <select formControlName="group" class="form-select" [ngModel]="adminGroups[idxGroup]">
+                                <select formControlName="group" class="form-select font-input" [ngModel]="adminGroups[idxGroup]">
                                     <option [ngValue]="group" *ngFor="let group of adminGroups">{{group.name}}
                                     </option>
                                 </select>
@@ -32,13 +32,24 @@
 
                         <div class="mb-3 d-flex flex-row justify-content-evenly">
                             <div class="form-floating input-width p-1">
-                                <input formControlName="name" name="name" type="text" class="form-control font-input"
-                                    id="name" placeholder="*назва..">
+                                <input formControlName="name" name="name" type="text" class="form-control font-input" id="name"
+                                    placeholder="*назва..">
                                 <label for="name">Назва
-
+                            
                                 </label>
                             </div>
 
+                            <div class="form-floating input-width p-1">
+                                <input formControlName="path" name="path" type="text" class="form-control font-input" id="path"
+                                    placeholder="*маршрут..">
+                                <label for="path">Маршрут
+                        
+                                </label>
+                            </div>
+                        
+                        </div>
+
+                        <div class="mb-3 d-flex flex-row justify-content-between">
                             <div class="form-floating input-width p-1">
                                 <input formControlName="sklad" name="title" type="text" class="form-control font-input" id="sklad"
                                     placeholder="*склад">
@@ -48,7 +59,7 @@
                             </div>
 
                             <div class="form-floating input-width-number p-1">
-                                <input formControlName="weight" name="weight" type="number" class="form-control font-input" id="weight"
+                                <input formControlName="weight" name="weight" type="text" class="form-control font-input" id="weight"
                                     placeholder="*вага">
                                 <label for="weight">Вага
                             
@@ -105,8 +116,8 @@
             <div class="col-2 mt-4 p-1">
                 <label for="name" class="form-label">Категорія</label>
                 <select [(ngModel)]="currentCategory" class="form-select" (change)="onSelectProduct()">
-                    <option >Всі
-                    </option>
+                    <!-- <option >Всі
+                    </option> -->
                     <option [ngValue]="category" *ngFor="let category of adminCategories">{{category.name}}
                     </option>
                 </select>

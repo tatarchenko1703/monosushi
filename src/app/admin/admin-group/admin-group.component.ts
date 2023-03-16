@@ -37,7 +37,8 @@ export class AdminGroupComponent {
 
   initGroupForm(): void {
     this.groupForm = this.fb.group({
-      name: [null, Validators.required]
+      name: [null, Validators.required],
+      path: [null, Validators.required]
     });
   }
 
@@ -72,7 +73,8 @@ export class AdminGroupComponent {
     window.scrollTo(0, 0);
     this.isViewForm = true;
     this.groupForm.patchValue({
-      name: group.name
+      name: group.name,
+      path: group.path
     });
     this.editStatus = true;
     this.currentGroupId = group.id;

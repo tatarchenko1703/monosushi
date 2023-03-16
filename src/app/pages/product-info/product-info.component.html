@@ -1,0 +1,55 @@
+<div class="margin-header"></div>
+<div class="spacer-lg"></div>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+
+                <div class="col-6">
+                    <img [src]="currentProduct.imgPath" class="card-img-top" [alt]="currentProduct.name">
+                </div>
+                
+                <div class="col-6">
+                    <div class="card-body">
+                        <h1 class="card-title text-decoration-none font-fm" style="min-height: 70px">{{currentProduct.name}}</h1>
+                        
+                        
+                        <ng-container *ngIf="isVisibleSklad">
+                            <div>
+                                <span class="text-decoration-none text-title"> Склад: </span>
+                                <span class="text-decoration-none text-sklad"> {{ currentProduct.sklad}}</span>
+                            </div>
+                        </ng-container>
+
+                        <div>
+
+                            <ng-container *ngIf="isVisibleSklad; else templateA">
+                                <span class="text-decoration-none text-title"> Вага: </span>
+                            </ng-container>
+                            
+                            <ng-template #templateA>
+                                <span class="text-decoration-none text-title"> Об'єм: </span>
+                            </ng-template>
+                            
+
+                            <span class="text-decoration-none text-sklad"> {{ currentProduct.weight}} </span>
+                        </div>
+
+                        <div class="d-flex justify-content-start align-items-center  mt-5">
+                            <h4 class="card-title text-danger" style="min-width: 90px;">{{ currentProduct.price * currentProduct.count}} грн</h4>
+                            <div class="btn-group mx-3" role="group" aria-label="Basic example">
+                                <button type="button" (click)="productCount(currentProduct, false)"class="btn btn-outline-secondary left">-</button>
+                                <input class="form-control border-secondary count text-center " type="text" [value]="currentProduct.count"
+                                    style="width: 40px;">
+                                <button type="button" (click)="productCount(currentProduct, true)"class="btn btn-outline-secondary right">+</button>
+                            </div>
+                            <a class="btn btn-primary" (click)="addToBasket(currentProduct)">Замовити</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

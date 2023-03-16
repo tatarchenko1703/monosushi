@@ -6,9 +6,11 @@ export interface IProductRequest {
     group: IGroupResponse;
     name: string;
     sklad: string;
-    weight: number;
+    weight: string;
     price: number;
+    path: string;
     imgPath: string;
+    count: number;
 }
 
 export interface IProductResponse extends IProductRequest {

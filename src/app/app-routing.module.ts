@@ -4,11 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DiscountComponent } from './pages/discount/discount.component';
 
 import { ProductComponent } from './pages/product/product.component';
-import { RollsComponent } from './pages/product/rolls/rolls.component';
-import { SetsComponent } from './pages/product/sets/sets.component';
-import { DrinksComponent } from './pages/product/drinks/drinks.component';
-import { SousesComponent } from './pages/product/souses/souses.component';
-
+import { ProductInfoComponent } from './pages/product-info/product-info.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { DiscountDetailComponent } from './pages/discount-detail/discount-detail.component';
@@ -22,27 +18,19 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { AdminGroupComponent } from './admin/admin-group/admin-group.component';
+import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'discount', component: DiscountComponent },
   { path: 'discount/:id', component: DiscountDetailComponent },
-  // { path: 'product/:category', component: ProductComponent },
-
-  // {
-  //   path: 'product', component: ProductComponent, children: [
-  //     { path: 'rolls', component: RollsComponent },
-  //     { path: 'sets', component: SetsComponent },
-  //     { path: 'drinks', component: DrinksComponent },
-  //     { path: 'souses', component: SousesComponent },
-  //     { path: '', pathMatch: 'full', redirectTo: 'rolls' }
-
-  //   ]
-  // },
-  { path: 'product/rolls', component: RollsComponent },
-  { path: 'product/sets', component: SetsComponent },
-  { path: 'product/drinks', component: DrinksComponent },
-  { path: 'product/souses', component: SousesComponent },
+  { path: 'product/:category/:group', component: ProductComponent },
+  {
+    path: 'product/:id', component: ProductInfoComponent, resolve: {
+      productInfo: ProductInfoResolver
+  }
+    
+  },
 
   { path: 'delivery', component: DeliveryComponent },
   { path: 'about', component: AboutComponent },

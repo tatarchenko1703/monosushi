@@ -4,8 +4,72 @@
     <div class="row justify-content-center">
         <div class="col-xl-10 col-12 text-center">
             <div class="center-info">
-                <h2 class="title text-prod font-fm" data-test="bool(false)"></h2>
+                <h2 class="title text-prod font-fm" data-test="bool(false)">{{activeTitle}}</h2>
             </div>
         </div>
     </div>
+</div>
+
+<div class="spacer-md"></div>
+
+<div class="row">
+    <div class="container  d-flex justify-content-center">
+        <ng-container *ngIf="activePath == 'rolls'">
+                        <!-- [routerLink]="['product/' + activePath + '/' + group.path ]" -->
+            <div 
+                class="btn-group" 
+                role="group" 
+                aria-label="Basic radio toggle button group">
+                <label 
+                    *ngFor="let group of groups; index as i" class="lbl-text">
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="btnselect" 
+                        id="{{i}}" 
+                        value="{{ group.path }}"
+                        autocomplete="off" 
+                        (change)="doOnItemClick(group.path)" 
+                        >
+                    <span class="btn btn-outline-primary">{{ group.name }}</span>
+                </label>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div class="container-main justify-content-start">
+    <!-- <div class="row d-flex justify-content-evenly"> -->
+    <ng-container *ngIf="products.length > 0">
+        <div class="col-5 col-padding" *ngFor="let product of products">
+            <div class="card justify-content-start border-0 draw">
+                <a [routerLink]="[ '/product', product.id ]" routerLinkActive="route-active"
+                        class="card-link text-decoration-none font-fm" aria-current="page">
+                    <img [src]="product.imgPath" class="card-img-top"
+                        [alt]="product.name">
+                </a>
+                <div class="card-body text-center justify-content-start m-0">
+                    <a [routerLink]="[ '/product', product.id ]" routerLinkActive="route-active"
+                        class="card-link text-decoration-none font-fm" aria-current="page">
+                        <h5 class="card-title fw-bolder"
+                            style="min-height: 40px">{{ product.name }}</h5>
+                    </a>
+                    <div class="d-flex justify-content-between" style="min-height: 60px">
+                        <span class="p-0 m-0 text-start" style="width:80%;">{{ product.sklad }}</span>
+                        <span class="fw-bolder text-end" style="width:20%">{{ product.weight }} </span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="card-title text-danger">{{ product.price }}грн</h4>
+                        <div class="btn-group mx-3" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary left">-</button>
+                            <input class="form-control border-secondary count text-center " type="text" value="1" style="width: 40px;">
+                            <button type="button" class="btn btn-outline-secondary right">+</button>
+                        </div>
+                        <a class="btn btn-primary">Замовити</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
 </div>

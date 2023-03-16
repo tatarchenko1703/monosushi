@@ -19,23 +19,26 @@ export class ProductService {
     return this.http.get<IProductResponse[]>(this.api.products);
   }
 
-  getCustom(type: number, categoryid: number, groupid: number): Observable<IProductResponse[]> {
-    if (type == 1) {
-      return this.http.get<IProductResponse[]>(`${this.api.products}`, {
-        params: new HttpParams()
-          .set(`category.id`, categoryid)
-          .set(`group.id`, groupid)
-      }
-      );
+  getCustom(categoryname: string, groupname: string): Observable<IProductResponse[]>
+  {
+    if (categoryname == 'rolls' && groupname == 'all') {
+      return this.http.get<IProductResponse[]>
+        (`${this.api.products}`,
+          {
+            params: new HttpParams()
+              .set(`category.path`, categoryname)
+          })
+
     } else { 
-      return this.http.get<IProductResponse[]>(`${this.api.products}`, {
-        params: new HttpParams()
-          .set(`category.id`, categoryid)
-      }
-      );
+      return this.http.get<IProductResponse[]>
+        (`${this.api.products}`,
+          {
+            params: new HttpParams()
+              .set(`category.path`, categoryname)
+              .set(`group.path`, groupname)
+          })
 
     }
-
   }
 
   getOne(id: number): Observable<IProductResponse> {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ICategoryRequest, ICategoryResponse } from '../../interfaces/category/category.interface';
@@ -17,6 +17,14 @@ export class CategoryService {
 
   getAll(): Observable<ICategoryResponse[]> {
     return this.http.get<ICategoryResponse[]>(this.api.categories);
+  }
+
+  getOne(path: string): Observable<ICategoryResponse[]> {
+    return this.http.get<ICategoryResponse[]>(`${this.api.categories}`,
+    {
+      params: new HttpParams()
+        .set(`path`, path)
+    });
   }
 
   create(category: ICategoryRequest): Observable<ICategoryResponse> {
