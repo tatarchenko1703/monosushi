@@ -124,6 +124,16 @@
     }
 }
 
+.text-cabinet {
+    text-overflow: ellipsis;
+    line-clamp: 2;
+
+    &::before {
+        content: "Кабінет користувача";
+        border-top: 6px solid $primary-bg-color;
+    }
+}
+
 .text-admin {
     text-overflow: ellipsis;
     line-clamp: 2;

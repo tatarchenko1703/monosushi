@@ -1,0 +1,26 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/style.scss';
+
+.bg-custom {
+    background-color: $primary-bg-color;
+}
+
+.box {
+    border-radius: 4px;
+    border: 1px solid #d1cfcf
+}
+
+.btn-success {
+    background-color: $primary-bg-color;
+    border-color: $primary-bg-color;
+    border-width: 2px;
+    color: #252525;
+    font-size: 18px;
+    font-weight: 600;
+    width: 45%;
+
+    &:hover{
+        background-color: #fff;
+        color: #252525;
+    }
+}

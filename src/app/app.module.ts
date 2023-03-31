@@ -17,10 +17,10 @@ import { AdminGroupComponent } from './admin/admin-group/admin-group.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ConfirmComponent } from './component/confirm/confirm/confirm.component';
+import { BasketComponent } from './component/basket/basket.component';
 
 import { AboutComponent } from './pages/about/about.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { BasketComponent } from './pages/basket/basket.component';
 import { DeliveryComponent } from './pages/delivery/delivery.component';
 import { DiscountComponent } from './pages/discount/discount.component';
 import { DiscountDetailComponent } from './pages/discount-detail/discount-detail.component';
@@ -30,6 +30,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ProductInfoComponent } from './pages/product-info/product-info.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,6 @@ import { ProductInfoComponent } from './pages/product-info/product-info.componen
     HeaderComponent,
     AboutComponent,
     AdminComponent,
-    BasketComponent,
     DeliveryComponent,
     DiscountComponent,
     DiscountDetailComponent,
@@ -50,7 +51,10 @@ import { ProductInfoComponent } from './pages/product-info/product-info.componen
     ProductComponent,
     AdminGroupComponent,
     ConfirmComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    LoginComponent,
+    BasketComponent,
+    CabinetComponent
   ],
   imports: [
     BrowserModule,

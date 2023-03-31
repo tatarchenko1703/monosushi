@@ -33,8 +33,10 @@
                         type="button">Продукти</button>
                 </div>
                 <div class="row">
-                    <button class="btn btn-primary" [routerLink]="['order']" routerLinkActive="active"
-                        type="button">Замовлення</button>
+                    <button class="btn btn-primary" [routerLink]="['order']" routerLinkActive="active" type="button">Замовлення</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary" routerLinkActive="active" type="button" (click)="logOut()">Log Out</button>
                 </div>
             </div>
         </div>

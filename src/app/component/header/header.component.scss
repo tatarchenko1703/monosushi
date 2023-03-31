@@ -1,5 +1,5 @@
 @import '../../shared/styles/variables';
-// @import '../../shared/styles/fonts/Rotonda/stylesheet.css';
+@import '../../shared/styles/fonts/Rotonda/stylesheet.css';
 
 
 
@@ -227,6 +227,8 @@ header {
     position: relative;
     color: #333;
     cursor: pointer;
+    outline: none;
+    border: 0;
 
     &::before,
     &::after {
@@ -376,6 +378,11 @@ header {
     width: 100%;
     height: 100%;
     cursor: pointer;
+
+    .btn-basket {
+        width: 100%;
+        height: 100%;
+    }
 
     &::before {
         content: '';

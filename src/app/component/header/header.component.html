@@ -58,30 +58,47 @@
         </div>
         
         <div class="p-0 m-0 d-flex user-box">
-            <a [routerLink]="['admin/discount']" routerLinkActive="route-active" class="nav-link user-link nav-button-admin draw"
+            <!-- <a [routerLink]="['admin/discount']" routerLinkActive="route-active" class="nav-link user-link nav-button-admin draw" -->
+                <button 
+                    type="button" 
+                    class="btn nav-link user-link nav-button-admin draw p-0"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#staticBackdrop">
+                    <img src="../../../assets/images/user.svg" height="30px">
+                </button>
+
+                <!-- <a [routerLink]="['login']" routerLinkActive="route-active" class="nav-link user-link nav-button-admin draw"
                 aria-current="page">
                 <img src="../../../assets/images/user.svg" height="30px">
                 <span class="fw-semibold descr">
-                </span>
-            </a>
+                </span> -->
+            <!-- </a> -->
         </div>
         
         
         <!-- <div class="header-basket open-cart"> -->
         <div class="box-basket navbar-brand">
             <div class="header-basket">
-                <i>
-                    <img src="../../../assets/images/basket.svg" alt="basket" oncontextmenu="return false">
-                    <span>{{ totalProduct }}</span>
-                </i>
-                <div class="basket-price empty ">
-                    <b id="basket-total-price" class="card-total-price">{{total}}</b>
-                    <span> грн</span>
-                </div>
+                <button
+                    type="button" 
+                    class="btn nav-link user-link nav-button-admin draw p-0 btn-basket" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#basketModal">
+                    <i>
+                        <img src="../../../assets/images/basket.svg" alt="basket" oncontextmenu="return false">
+                        <span>{{ totalProduct }}</span>
+                    </i>
+                    <div class="basket-price empty ">
+                        <b id="basket-total-price" class="card-total-price">{{total}}</b>
+                        <span> грн</span>
+                    </div>
+
+                </button>
             </div>
         </div>
     </div>
 </header>
+
 
 <div class="burger_menu" id="burger">
     <div class="burger_content">

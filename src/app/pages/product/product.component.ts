@@ -9,6 +9,7 @@ import { ICategoryRequest, ICategoryResponse } from 'src/app/shared/interfaces/c
 
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { BasketService } from 'src/app/shared/services/basket/basket.service';
 
 @Component({
   selector: 'app-product',
@@ -32,7 +33,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     private groupService: GroupService,
     private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private basketService: BasketService,
+
   ) {
     this.eventSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -83,4 +86,18 @@ export class ProductComponent implements OnInit, OnDestroy {
       this.products = data;
     })
   }
+
+  productCount(product: IProductResponse, value: boolean) {
+    if (value) {
+      ++product.count;
+    } else if (!value && product.count > 1) {
+      --product.count;
+    }
+  }
+
+  addToBasket(product: IProductResponse): void {
+    this.basketService.addToBasket(product);
+    product.count = 1;
+  }
+
 }

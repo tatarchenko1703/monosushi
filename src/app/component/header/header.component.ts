@@ -1,6 +1,8 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import { ROLE } from 'src/app/shared/contants/role.constant';
 import { ICategoryResponse } from 'src/app/shared/interfaces/category/category.interface';
 import { IProductResponse } from 'src/app/shared/interfaces/product/product.interface';
+import { AccountService } from 'src/app/shared/services/account/account.service';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { environment } from 'src/environments/environment';
@@ -19,17 +21,23 @@ export class HeaderComponent {
   public total = 0;
   public totalProduct = 0;
   private basket: Array<IProductResponse> = [];
+  public isLogin = false;
+  public loginUrl = '';
+  public loginPage = '';
 
   constructor(
     private categoryService: CategoryService,
     private renderer: Renderer2,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private accountService: AccountService
   ) { }
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadbasket();
     this.updateBacket();
+    this.checkUserLogin();
+    this.checkUpdateUserLogin();
   }
 
   loadCategories(): void {
@@ -41,10 +49,7 @@ export class HeaderComponent {
   openMenu() {
     const burger = document.getElementById('burger');
     let btnOpen = document.getElementById('open');
-    const btnClose = document.getElementById('close');
-
-    // this.renderer.setStyle(burger, 'bottom', 'calc(0% - 70px)');
-    
+    // const btnClose = document.getElementById('close');
     let box = btnOpen?.getBoundingClientRect();   
     this.renderer.setStyle(burger, 'top', '20px');
     this.renderer.setStyle(burger, 'left', `${box?.left}px`);
@@ -56,9 +61,6 @@ export class HeaderComponent {
 
   closeMenu() {
     const burger = document.getElementById('burger');
-    const btnOpen = document.getElementById('open');
-    const btnClose = document.getElementById('close');
-
     this.renderer.setStyle(burger, 'top', '-100lvh');
   }
 
@@ -76,8 +78,33 @@ export class HeaderComponent {
   }
 
   updateBacket() {
-    this.orderService.changeBasket.subscribe(() => this.loadbasket());
-    
+    this.orderService.changeBasket.subscribe(() => this.loadbasket()); 
+  }
+
+  checkUserLogin(): void {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
+    if (currentUser && currentUser.role !== ROLE.ADMIN) {
+      this.loginUrl = 'admin/discount';
+      this.loginPage = 'admin/discount';
+      this.isLogin = true;
+    } else if (currentUser && currentUser.role !== ROLE.USER) {
+      this.loginUrl = 'cabinet';
+      this.loginPage = 'cabinet';
+      this.isLogin = true;
+
+    } else { 
+      this.loginUrl = '';
+      this.loginPage = '';
+      this.isLogin = false;
+    }
+        
+  }
+  
+  checkUpdateUserLogin() { 
+    this.accountService.isUserLogin$.subscribe(() => { 
+      this.checkUserLogin();
+    })
+
   }
 
 }
